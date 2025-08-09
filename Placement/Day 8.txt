@@ -1,0 +1,256 @@
+1.For loop in arraylist
+
+import java.util.*;
+public class Main{
+        public static void main(String[]args)
+        {
+                ArrayList<String>list=new ArrayList<String>();
+                list.add("Apple");
+                list.add("Orange");
+                list.add("Banana");
+                for(String i:list) //1st method
+                {
+                        System.out.println(i);
+                }
+                for(int i=0;i<list.size();i++)   //2nd method
+                {
+                        System.out.println(list.get(i));
+                }
+        }
+}
+
+2.Iterator without using for loop
+
+import java.util.*;
+public class Main{
+        public static void main(String[]args)
+        {
+                ArrayList<String>list=new ArrayList<String>();
+                list.add("cat");
+                list.add("dog");
+                list.add("Bat");
+                Iterator<String>it=list.iterator();
+                while(it.hasNext())
+                {
+                        System.out.println(it.next());
+                }
+         }
+}
+
+
+3.HashSet
+
+import java.util.*;
+public class Main{
+        public static void main(String[]args)
+        {
+                HashSet<String>set=new HashSet<String>();
+                set.add("c");
+                set.add("d");
+                set.add("c");    //in set it does not return the duplicate values
+                Iterator<String>it=set.iterator();
+                while(it.hasNext())
+                {
+                        System.out.println(it.next());
+                }
+         }
+}
+
+4.Stack using for loop
+
+
+import java.util.*;
+public class Main{
+        public static void main(String[]args)
+        {
+                Stack<String>stack=new Stack<String>();
+                stack.push("first");
+                stack.push("second");
+                stack.push("third");//in set it does not return the duplicate values
+                Iterator<String>it=stack.iterator();
+                System.out.println(stack.peek());
+                while(stack.isEmpty())
+                {
+                        System.out.println(stack.pop());
+                }
+         }
+}
+
+
+5.Priority queue
+
+import java.util.*;
+public class Main{
+        public static void main(String[]args)
+        {
+                PriorityQueue<String>pq=new PriorityQueue<String>();
+                 pq.add("30");
+                 pq.add("10");
+                 pq.add("20");
+                while(!pq.isEmpty())
+                {
+                        System.out.println(pq.poll());
+                }
+         }
+}
+
+
+
+6.Hashmap using(String,Integer)-map    // prints in sorted  order
+
+import java.util.*;
+public class Main{
+        public static void main(String[]args)
+        {
+                HashMap<String,Integer>map=new HashMap<String,Integer>();
+                map.put("Math",90);
+                map.put("English",80);
+              for(String key:map.keySet())
+                {
+                        System.out.println(key+":"+map.get(key));
+                }
+         }
+}
+
+
+7.when divisible by 3 print buzz and when divisible by 5 print fizz and if both print fizz buzz
+
+
+import java.util.*;
+public class Main{
+        public static void main(String[]args){
+                Scanner sc=new Scanner(System.in);
+                int n=sc.nextInt();
+                List<String>r=new ArrayList<String>();
+                for(int i=1;i<=n;i++) {
+                        if(i%3==0 && i%5==0){
+                                r.add("FizzBuzz");}
+                        else if(i%3==0){
+                                r.add("Fizz"); }
+                        else if(i%5==0) {
+                                r.add("Buzz");}
+                        else{
+                                r.add(Integer.toString(i));}
+                }
+                 for(int i=0;i<r.size();i++)
+                {
+                        System.out.println(r.get(i));
+                }
+        }
+}
+
+
+
+HACKERRANK:
+1.Product ID Insertion in Inventory(Singly Linked List -insertion at end)
+
+
+import java.util.*;
+
+class Node
+{
+	int data;
+	Node next;
+
+	Node(int data)
+	{
+		this.data = data;
+		this.next = null;
+	}
+}
+
+class LinkedList
+{
+	Node head;
+
+	public void insertAtEnd(int data)
+	{
+		Node newNode = new Node(data);
+		if (head == null) {
+			head = newNode;
+			return;
+		}
+		Node current = head;
+		while (current.next != null)
+		{
+			current = current.next;
+		}
+		current.next = newNode;
+	}
+
+	public void printList()
+	{
+		Node current = head;
+		while (current != null) {
+			System.out.print(current.data + " ");
+			current = current.next;
+		}
+		System.out.println();
+	}
+}
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		LinkedList list = new LinkedList();
+		for (int i = 0; i < n; i++) {
+			int id = sc.nextInt();
+			list.insertAtEnd(id);
+		}
+		list.printList();
+	}
+}
+
+
+2. Task ID Management System
+
+
+import java.io.*;
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+    public Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+
+class LinkedList{
+    Node head;
+    public void insertAtBegin(int data){
+        Node nn=new Node(data);
+        if(head==null){
+            head=nn;
+            return;
+        }
+        else
+        {
+            nn.next=head;
+            head=nn;
+        }
+        
+    }
+
+public void printList(){
+    Node current=head;
+    while(current!=null){
+        System.out.print(current.data+" ");
+        current=current.next;
+    }
+}
+}
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        LinkedList l=new LinkedList();
+        for(int i=0;i<n;i++)
+        {
+            int id=sc.nextInt();
+            l.insertAtBegin(id);
+        }
+        l.printList();
+    }
+}

@@ -1,0 +1,177 @@
+1. Insertion of array in sorted order
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=sc.nextInt();
+        }
+        int ele=sc.nextInt();
+        int b[]=new int[n+1];
+        b[0]=ele;
+        for(int i=1;i<n+1;i++){
+            b[i]=a[i-1];
+        }
+        Arrays.sort(b);
+        for(int i=0;i<n+1;i++){
+            System.out.print(b[i]+" ");
+        }
+    }
+}
+
+2.Second largest number's count in an Arrays
+ import java.util.*;
+ public class Main{
+     public static void main(String[] args){
+         Scanner sc=new Scanner(System.in);
+         int n=sc.nextInt();
+         int a[]=new int[n];
+         for(int i=0;i<n;i++){
+             a[i]=sc.nextInt();
+        }
+        int count=0;
+        Arrays.sort(a);
+        for(int i=n-1;i>1;i--){
+            if(a[i]!=a[i-1]){
+                count++;
+                for(int k=1;k<n;k++){
+                if(a[i-k]==a[i-(k+1)]){
+                    count++;
+                }
+                    else{
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        System.out.print(count);}
+ }
+
+3.Sum of the largest two numbers in the Arrays
+import java.util.*;
+  public class Main{
+      public static void main(String[] args){
+          Scanner sc=new Scanner(System.in);
+          int n=sc.nextInt();
+          int a[]=new int[n];
+          for(int i=0;i<n;i++){
+              a[i]=sc.nextInt();
+         }
+         Arrays.sort(a);
+         int sum=a[n-1];
+         for(int i=n-1;i>1;i--){
+             if(a[i]!=a[i-1]){
+                 sum=sum+a[i-1];
+                 break;
+             }
+         }
+          System.out.print(sum);
+      }
+                 
+             
+  }
+
+4.second and third terms g2, and g3 of a GP, find the nth term
+
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+        double g2=sc.nextDouble();
+        double g3=sc.nextDouble();
+        double g=g3/g2;
+        int n=sc.nextInt();
+        int ans=(int)g3;
+        for(int i=4;i<=n;i++)
+        {
+            ans=ans*(int)g;
+            
+        }
+        System.out.printf("%.3f",(float)ans);
+        
+        
+        
+        
+    }
+} 
+
+5.SHIP ROUNDS
+
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        float ans=(float)b/(float)a;
+        if(ans>(int)ans)
+        {
+            int anss=(int)ans+1;
+            System.out.print(anss);
+        }
+        else
+        {
+            System.out.print((int)ans);
+        }
+    }
+}
+
+6.Canopy AREA
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int r=sc.nextInt();
+        double ans=3.14*(double)r*(double)r;
+        int ele=(int)ans;
+        double a=(double)ele+0.5;
+        if(ans<=a){
+        System.out.print((int)ans);
+        }
+        else{
+            System.out.print((int)ans+1);
+        }
+    }
+}
+7.calculate the paint coverage area for circular objects
+
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        double r=(double)n/2;
+        double pi=3.14rr;
+        System.out.printf("%.2f",(float)pi);
+        
+    }
+}
+
+8.Calculating the Paint Coverage Area for Circular Objects
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int N=sc.nextInt();
+        int X=sc.nextInt();
+        int p=(N-1)*10;
+        int time=(N-1)*X;
+        int total=p-time;
+        System.out.println(total);
+    }
+}

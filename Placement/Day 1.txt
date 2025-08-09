@@ -1,0 +1,508 @@
+
+TYPECASTING
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int num = sc.nextInt();
+    double b = num;
+    System.out.println(num);
+     System.out.println(b);
+}
+}
+
+IF-ELSE-IF & NESTED IF-ELLE-IF
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int a,b,c;
+    a=sc.nextInt();
+    b=sc.nextInt();
+    c=sc.nextInt();
+    if(a>c)
+    {
+        if(a==b)
+        {
+        System.out.println("a is equal to b");
+        }
+        else{
+            System.out.println("a is greater");
+        }
+    }
+    else if(b>c && b>a)
+    {
+        System.out.println("b is greater");
+    }
+    else{
+        System.out.println("c is greater");
+    }
+}
+}
+
+
+switch case
+
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int num = sc.nextInt();
+    switch(num)
+    {
+        case 1 : System.out.println("jolisha");
+        break;
+        case 2 : System.out.println("angelin");
+        break;
+        case 3 : System.out.println("cse");
+        break;
+        default : System.out.println("hi");
+    }
+}
+}
+
+CALCULATOR USING SWITCH CASE
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int a,b;
+    a= sc.nextInt();
+    b= sc.nextInt();
+    char num = sc.next().charAt(0);
+    switch(num)
+    {
+      case '+' : System.out.print(a+b);
+      break;
+      case '-' : System.out.print(a-b);
+      break;
+      case '*' : System.out.print(a*b);
+      break;
+      case '/' : System.out.print(a/b);
+      break;
+      default : System.out.print("Invalid input");
+    }
+}
+}
+
+FOR LOOP
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int size;
+    size = sc.nextInt();
+    int arr[]=new int[size];
+    for(int i=1;i<size;i++)
+    {
+        arr[i]=sc.nextInt();
+    }
+    for(int i=1;i<size;i++)
+    {
+        System.out.println(arr[i]);
+    }
+}
+}
+
+FOR LOOP
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int i;
+    for(i=1;i<=15;i++)
+    {
+        System.out.println(i);
+    }
+}
+}
+
+WHILE LOOP
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int i;
+    i=sc.nextInt();
+    while(i>0)
+    {
+        System.out.println(i);
+        i--;
+    }
+}
+}
+
+//DO...while
+
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int i;
+    i=sc.nextInt();
+    do{
+        System.out.println(i);
+        i--;
+    }
+    while(i>0);
+}
+}
+
+
+SQUARE PATTERN
+
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int i,r,c,n;
+    n=sc.nextInt();
+    for(r=1;r<=n;r++)
+    {
+        for(c=1;c<=n;c++)
+        {
+        System.out.print("*");
+        }
+         System.out.println();
+    }
+}
+}
+
+TRIANGLE PATTERN
+
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int n,star,space,r;
+    n=sc.nextInt();
+    for(r=1;r<=n;r++)
+    {
+        for(space=1;space<=n-r;space++)
+        {
+            System.out.print(" ");
+        }
+        for(star=1;star<=r*2-1;star++)
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+}
+}
+
+
+Diamond PATTERN
+
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int n,star,space,r;
+    n=sc.nextInt();
+    for(r=1;r<=n;r++)
+    {
+        for(space=1;space<=n-r;space++)
+        {
+            System.out.print(" ");
+        }
+        for(star=1;star<=r*2-1;star++)
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+for(r=n;r>=1;r--)
+{
+        for(space=1;space<=n-r;space++)
+        {
+            System.out.print(" ");
+        }
+        for(star=1;star<=r*2-1;star++)
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+}
+}
+}
+
+METHODS
+
+1.WITH ARG & WITH RETURN
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int a= sc.nextInt();
+    int b= sc.nextInt();
+     System.out.println(Add(a,b));
+}
+public static int Add(int a, int b)
+{
+    return a+b;
+}
+}
+
+2.with argument without return type
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int a= sc.nextInt();
+    int b= sc.nextInt();
+    Add(a,b);
+}
+public static void Add(int a, int b)
+{
+    System.out.print(a+b);
+}
+}
+
+if method id not static we have to initialize the object
+
+WITH STATIC -2.  WITH ARG & NO RETURN TYPE
+
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int a= sc.nextInt();
+    int b= sc.nextInt();
+    Main ob=new Main();
+    ob.Add(a,b);
+}
+public void Add(int a, int b)
+{
+    System.out.print(a+b);
+}
+}
+
+3.WITHOUT ARG & WITH RETURN
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    System.out.print(Add());
+}
+public static int Add()
+{ Scanner sc=new Scanner(System.in);
+    int a= sc.nextInt();
+    int b= sc.nextInt();
+    return a+b;
+}
+}
+
+
+
+4.WITHOUT ARGUMENT & WITHOUT RETURN
+
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Add();
+}
+public static void Add()
+{ Scanner sc=new Scanner(System.in);
+    int a= sc.nextInt();
+    int b= sc.nextInt();
+    System.out.print(a+b);
+}
+}
+
+FACTORIAL
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int ans = sc.nextInt();
+        System.out.print(fun(ans));
+}
+
+public static int fun(int n)
+{
+    if(n==1)
+    {
+        return 1;
+    }
+    else
+    {
+        return n*fun(n-1);
+    }
+}
+}
+
+FIBONACCI
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=0,b=1,n,i,c;
+        n=sc.nextInt();
+        System.out.print("0 1 ");
+        for(i=1;i<=n-2;i++)
+        {
+            c=a+b;
+            System.out.printf("%d ",c);
+            a=b;
+            b=c;
+        }
+}
+}
+
+
+FIBONACCI USING RECURSIVE FUNCTION
+
+import java.util.*;
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        for(int i=0;i<n;i++){
+        System.out.print(Fib(i));
+       
+    }}
+    public static int Fib(int n){
+        if (n==1 || n==0){
+             return n;
+        }
+        else {
+            return Fib(n-1)+Fib(n-2);
+        }
+    }
+}
+
+ARMSTRONG
+
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int n,i,ld,pow=1,count=0,sum=0,copy;
+    n=sc.nextInt();
+    copy=n;
+    while(n>0)
+    {
+        n=n/10;
+        count++;
+    }
+    n=copy;
+    while(n>0)
+    {
+        ld=n%10;
+        n=n/10;
+        pow=1;
+        for(i=1;i<=count;i++)
+        {
+            pow=pow*ld;
+        }
+        sum=sum+pow;
+    }
+    if(sum==copy)
+    System.out.println("ARMSTRONG");
+    else
+    System.out.println("NOT");
+   
+}
+}
+
+
+PRIME
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int n,i,flag=0;
+    n=sc.nextInt();
+    for(i=2;i<=n/2;i++)
+    {
+        if(n%i==0)
+        {
+            flag=1;
+            break;
+        }
+    }
+    if(flag==0)
+    {
+        System.out.println("Prime");
+    }
+    else
+    {
+        System.out.print("Not");
+    }
+}
+}
+
+AMICABLE
+
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n1,n2,i,sum1=0,sum2=0;
+        n1=sc.nextInt();
+        n2=sc.nextInt();
+        for(i=1;i<=n1/2;i++)
+        {
+            if(n1%i==0)
+            {
+                sum1=sum1+i;
+            }
+        }
+        for(i=1;i<n2/2;i++)
+        {
+            if(n2%1==0)
+            sum2=sum2+i;
+        }
+        if(sum1==n2&&sum2==n1)
+        {
+            System.out.print("Amicable");
+        }
+        else
+        {
+        System.out.print("Not");
+        }
+}
+}

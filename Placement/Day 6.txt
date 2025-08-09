@@ -1,0 +1,521 @@
+1.Pangram or not
+
+import java.util.Scanner;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        int count = 0;
+
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        sc.close();
+
+        str = str.toLowerCase();
+
+        for (char ch = 'a'; ch <= 'z'; ch++) {
+            boolean found = false;
+            for (int j = 0; j < str.length(); j++) {
+                if (str.charAt(j) == ch) {
+                    count++;
+                    found = true;
+                    break;
+                }
+            }
+        }
+
+        if (count == 26)
+            System.out.println("panagram");
+
+        else
+            System.out.println("not");
+
+}
+}
+
+2.Anagram or not
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the first string");
+        String s1=sc.nextLine();
+        System.out.println("Enter the second string");
+        String s2=sc.nextLine();
+
+        s1 = s1.toLowerCase();
+        s2 = s2.toLowerCase();
+
+        char[] ch1=s1.toCharArray();
+        char[] ch2=s2.toCharArray();
+
+        Arrays.sort(ch1);
+        Arrays.sort(ch2);
+
+        if(Arrays.equals(ch1,ch2))
+        {
+            System.out.println("The strings are anagram");
+        }
+        else
+        {
+            System.out.println("The strings are not anagram");
+        }
+    }
+}
+
+3.hard and easy count difficulty quotient
+
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner inputScanner = new Scanner(System.in);
+        String inputString = inputScanner.nextLine();
+        int vowelCount = 0;
+        int consonantCount = 0;
+        String lowercaseString = inputString.toLowerCase();
+        for (int i = 0; i < lowercaseString.length(); i++) {
+            char ch = lowercaseString.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowelCount++;
+            } else if (ch >= 'a' && ch <= 'z') {
+                consonantCount++;
+            }
+        }
+        if (vowelCount > consonantCount) {
+            System.out.println("easy");
+        } else{
+            System.out.println("hard");
+        }
+        int result = (5 * consonantCount) - (2 * vowelCount);
+        System.out.print(result);
+
+    }
+}
+
+4.Encapsulation in java code-public,private,protected and it has get,set methods
+
+import java.util.*;
+class StudentLogin {
+    private String regNo;
+    private String password;
+
+    public void setRegNo(String regNo) {
+        this.regNo = regNo;
+    }
+
+    public void setPassword(String password) {
+        if (password.length() >= 6) {
+            this.password = password;
+        } else {
+            System.out.println("Password must be at least 6 characters long.");
+        }
+    }
+
+    public String getRegNo() {
+        return regNo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        StudentLogin student = new StudentLogin();
+
+        System.out.print("Enter Registration Number: ");
+        String regNo = sc.nextLine();
+        student.setRegNo(regNo);
+
+        System.out.print("Enter Password: ");
+        String password = sc.nextLine();
+        student.setPassword(password);
+
+        System.out.println("Reg No: " + student.getRegNo());
+        System.out.println("Password: " + student.getPassword());
+
+        sc.close(); // Close the scanner
+    }
+}
+
+
+5.single Inheritance in java code
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Bmw ob=new Bmw();
+        ob.Start();
+        System.out.print(ob.wheels);
+}
+}
+class Car{
+    int wheels=4;
+    public static void Start()
+    {
+        System.out.print("Run");
+    }
+}
+class Bmw extends Car{
+
+}
+
+
+6.Multilevel Inheritance
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        Bmw obj=new Bmw();
+        obj.Start();
+        System.out.print(obj.wheels);
+        Audi obj1=new Audi();
+        obj.Drifting();
+        obj1.Speed();
+    }
+}
+class Car{
+    int wheels=4;
+    public static void Start(){
+        System.out.print("Run");
+    }
+}
+class Bmw extends Car{
+    public void Drifting(){
+        System.out.println("Nice");
+    }
+}
+class Audi extends Bmw{
+    public void Speed(){
+        System.out.print("Good");
+    }
+}
+
+7.Hierachial Inheritance
+
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        Bmw obj=new Bmw();
+        obj.Start();
+        System.out.print(obj.wheels);
+        Audi obj1=new Audi();
+        obj.Drifting();
+        obj1.Speed();
+    }
+}
+class Car{
+    int wheels=4;
+    public static void Start(){
+        System.out.print("Run");
+    }
+}
+class Bmw extends Car{
+    public void Drifting(){
+        System.out.println("Nice");
+    }
+}
+class Audi extends Car{
+    public void Speed(){
+        System.out.print("Good");
+    }
+}
+
+
+8.Multi level using Interface in java
+
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Dell ob=new Dell();
+        ob.Storage();
+        ob.Display();
+        
+        
+    }
+}
+interface Laptop
+{
+        abstract void Storage();
+}
+
+interface Hp
+{
+        abstract void Display();
+}
+class Dell implements Laptop,Hp
+{
+        public void Storage()
+        {
+                System.out.println("High");
+        }
+        public void Display()
+        {
+                System.out.println("Good");
+        }
+}
+
+9.hybrid Inheritance
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        C ob1=new C();
+        D ob2=new D();
+        ob1.Start();
+        ob1.Drive();
+        ob2.End();
+        ob1.Drifting();
+}
+}
+class A{
+    public static void Start()
+    {
+        System.out.println("Run");
+    }
+}
+class B extends A{
+      public static void Drive()
+    {
+        System.out.println("Nice");
+    }
+}
+
+class C extends B{
+    public static void Drifting()
+    {
+        System.out.println("Super");
+    }
+}
+
+class D extends A{
+    public static void End()
+    {
+        System.out.println("Stop");
+    }
+}
+
+10. Abstaction -hiding the unnecessary data and showing the necessary data
+
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Dell ob=new Dell();
+        ob.Storage();
+        ob.Display();
+        
+        
+    }
+}
+interface Laptop
+{
+        abstract void Storage();
+        abstract void Display();
+}
+class Dell implements Laptop
+{
+        public void Storage()
+        {
+                System.out.println("High");
+        }
+        public void Display()
+        {
+                System.out.println("Good");
+        }
+}
+
+11.Method OverLoading-same name but different parameters
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        C ob1=new C();
+        ob1.Add(2,3);
+        ob1.Add(4.7,8.0);
+        ob1.Add(2.456,6.4321);
+        
+}
+}
+class C{
+    public static void Add(int a,int b)
+    {
+        System.out.println(a+b);
+    }
+    public static void Add(double a,double b)
+    {
+        System.out.println(a+b);
+    }
+    public static void Add(float a,float b)
+    {
+        System.out.println(a+b);
+    }
+}
+
+12.Method overriding-same name no parameters
+
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        C ob1=new C();
+        B ob2=new B();
+        ob2.Sub();
+        ob2.Add();
+        ob1.Add();
+        
+}
+}
+class C{
+    public  void Add()
+    {
+        System.out.println("Addition");
+    }
+}
+class B extends C {
+    public  void Sub()
+    {
+        System.out.println("Subtraction");
+    }
+    @Override
+    public  void Add()
+    {
+        System.out.println("adddddddddddd");
+    }
+}
+
+13.Abudant number(ip:n=12 ->1+2+3+4+6=>16 ) or Perfect number (ip:n=6->1+2+3==6)
+LOGIC:  (sum of factors >n) or (sum of factors ==n)
+
+import java.util.*;
+public class Main{
+        public static void main(String[] args)
+        {
+                Scanner sc=new Scanner(System.in);
+                int n=sc.nextInt();
+                int sum=0;
+                for(int i=1;i<n;i++)
+                {
+                        if(n%i==0)
+                      {
+                              sum+=i;
+                      }
+                }
+                if(sum>n)
+                {
+                        System.out.println("Abudant number");
+                }
+                else if(sum==n)
+                {
+                        System.out.println("Perfect number");
+                }
+                else
+                 {
+                        System.out.println("Not");
+                }
+                   
+        }
+}
+14.TAIL RECURSION(ip=> 5 op=>5 4 3 2 1)
+
+import java.util.*;
+public class Main{
+        public static void fun(int n)
+        {
+                if(n>0)
+                {
+                        System.out.print(n+" ");
+                        fun(n-1);
+                }
+        }
+                 public static void main(String[]args)
+                 {
+                         Scanner sc=new Scanner(System.in);
+                         int n=sc.nextInt();
+                         fun(n);
+                 }
+}
+
+
+15.HEAD RECURSION (ip=>5 op=> 1 2 3 4 5)
+
+
+import java.util.*;
+public class Main{
+        public static void fun(int n)
+        {
+                if(n>0)
+                {
+             
+                        fun(n-1);
+                        System.out.print(n+" ");
+                }
+        }
+                 public static void main(String[]args)
+                 {
+                         Scanner sc=new Scanner(System.in);
+                         int n=sc.nextInt();
+                         fun(n);
+                 }
+}
+
+16.NESTED RECURSION
+
+
+import java.util.*;
+public class Main{
+        public static int fun(int n)
+        {
+                if(n>100)
+                {
+             
+                        return n-10;
+                        
+                }
+                else
+                {
+                        return(fun(fun(n+11)));
+                }
+        }
+                 public static void main(String[]args)
+                 {
+                         Scanner sc=new Scanner(System.in);
+                         int n=sc.nextInt();
+                         System.out.print(fun(n));
+                 }
+}
+
+17.ZOHO Question-find the output and i value (op=>96 i=7)
+
+class Main {
+    static int i=0;
+     static int fun(int a){
+         i++;
+         if(a>99)
+         {
+              return a-12;
+         }
+             return fun(fun(a+25));
+     }
+     public static void main(String[] args) {
+        System.out.println(fun(69));
+        System.out.println(i);
+    }
+
+}

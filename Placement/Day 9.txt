@@ -1,0 +1,566 @@
+1.Finding the Critical Task in a Project Workflow(Slow and Fast Algorithm -to find the middle element) (printing thr middle)
+
+import java.util.*;
+class Node
+{
+	int data;
+	Node next;
+	public Node(int data)
+	{
+		this.data=data;
+		this.next=null;
+	}
+}
+
+public class Main {
+	public static Node findMiddle(Node head)
+	{
+		Node slow=head,fast=head;
+		while((fast!=null)&&(fast.next!=null))
+		{
+			slow=slow.next;
+			fast=fast.next.next;
+		}
+		return slow;
+	}
+	public static void printFromMiddle(Node middle)
+	{
+		Node temp=middle;
+		while(temp!=null)
+		{
+			System.out.print(temp.data+" ");
+			temp=temp.next;
+		}
+	}
+	public static void main(String[]args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		Node head=null,tail=null;
+		for(int i=0; i<n; i++)
+		{
+			int value=sc.nextInt();
+			Node newNode=new Node(value);
+			if(head==null)
+			{
+				head=newNode;
+				tail=newNode;
+			}
+			else
+			{
+				tail.next=newNode;
+				tail=newNode;
+			}
+		}
+		Node middle=findMiddle(head);
+		printFromMiddle(middle);
+
+	}
+}
+
+
+2.Insertion at Middle
+
+import java.util.*;
+
+class Node {
+	int data;
+	Node next;
+	public Node(int data) {
+		this.data=data;
+		this.next=null;
+	}
+}
+
+class LinkedList {
+	Node head,tail;
+
+	public void insertAtEnd(int data) {
+		Node nn=new Node(data);
+		if(head==null) {
+			head=nn;
+			return;
+		}
+		Node current=head;
+		while(current.next!=null) {
+			current=current.next;
+		}
+		current.next=nn;
+	}
+	public void insertAtMid(int data,int pos) {
+		Node nn=new Node(data);
+		if(head==null) {
+			head=nn;
+			tail=nn;
+		}
+		else if(pos==1)
+		{
+			nn.next=head;
+			head=nn;
+		}
+		else
+		{
+			Node c=head,p=null;
+			int count=1;
+			while(pos!=count&&c!=null)
+			{
+				p=c;
+				c=c.next;
+				count++;
+			}
+			nn.next=c;
+			p.next=nn;
+			if(nn.next==null)
+			{
+				tail=nn;
+			}
+
+		}
+
+	}
+
+	public void printList() {
+		Node current=head;
+		while(current!=null) {
+			System.out.print(current.data+" ");
+			current=current.next;
+		}
+	}
+}
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		LinkedList l=new LinkedList();
+
+		for(int i=0; i<n; i++)
+		{
+			int id=sc.nextInt();
+			l.insertAtEnd(id);
+
+		}
+		int pos=sc.nextInt();
+		int ele=sc.nextInt();
+		l.insertAtMid(ele,pos);
+		l.printList();
+	}
+}
+
+
+3.Linkedlist cycle
+
+LOGIC:
+
+public class Solution {
+	public boolean hasCycle(ListNode head) {
+		ListNode slow=head;
+		ListNode fast=head;
+		while(fast!=null && fast.next!=null)
+		{
+			slow=slow.next;
+			fast=fast.next.next;
+			if(slow==fast)
+				return(true);
+		}
+		return false;
+	}
+}
+
+
+4.two sums
+import java.util.*;
+
+class Solution {
+	public int[] twoSum(int[] nums, int target) {
+		int n=nums.length;
+		for(int i=0; i<n; i++)
+		{
+			for(int j=i+1; j<n; j++)
+			{
+				if(nums[i]+nums[j]==target)
+					return new int[] {i,j};
+			}
+		}
+
+		return new int[] {};
+	}
+}
+
+5.Intersection of Two Linked Lists
+
+public class Solution {
+	public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+		ListNode a=headA,b=headB;
+		while(a!=b)
+		{
+			a=(a==null)? headB : a.next;
+			b=(b==null)? headA : b.next;
+		}
+		return a;
+	}
+}
+
+
+
+6.removing last book from library
+
+import java.io.*;
+import java.util.*;
+
+class Node {
+	int data;
+	Node next;
+	public Node(int data)
+	{
+		this.data=data;
+		this.next=null;
+	}
+
+}
+class LinkedList {
+
+	public Node head=null;
+	public Node tail=null;
+
+	public void insertAtEnd(int data) {
+		Node nn=new Node(data);
+		if(head==null) {
+			head=nn;
+			return;
+		}
+		Node current=head;
+		while(current.next!=null) {
+			current=current.next;
+		}
+		current.next=nn;
+	}
+	public void del()
+	{
+		Node c=head;
+		while(c.next.next!=null)
+		{
+			c=c.next;
+		}
+		c.next=tail;
+	}
+	public void display()
+	{
+		Node i=head;
+		while(i!=null)
+		{
+			System.out.print(i.data+" ");
+			i=i.next;
+
+		}
+	}
+}
+
+public class Main {
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int id=0;
+		LinkedList l=new LinkedList();
+		for(int i=0; i<n; i++) {
+			id=sc.nextInt();
+			l.insertAtEnd(id);
+		}
+		if(n==1)
+		{
+			System.out.print("List is empty");
+		}
+		else
+		{
+			l.del();
+			l.display();
+		}
+	}
+}
+
+7.Appending a Book to a Library Catalog
+
+import java.io.*;
+import java.util.*;
+
+class Node {
+	int data;
+	Node next;
+	public Node(int data)
+	{
+		this.data=data;
+		this.next=null;
+	}
+
+}
+class LinkedList {
+
+	public Node head=null;
+	public Node tail=null;
+
+	public void insertAtEnd(int data) {
+		Node nn=new Node(data);
+		if(head==null) {
+			head=nn;
+			return;
+		}
+		Node current=head;
+		while(current.next!=null) {
+			current=current.next;
+		}
+		current.next=nn;
+	}
+
+	public void display()
+	{
+		Node i=head;
+		while(i!=null)
+		{
+			System.out.print(i.data+" ");
+			i=i.next;
+
+		}
+	}
+}
+
+public class Main {
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int id=0;
+		LinkedList l=new LinkedList();
+		for(int i=0; i<n; i++) {
+			id=sc.nextInt();
+			l.insertAtEnd(id);
+		}
+		if(n==1)
+		{
+			System.out.print("List is empty");
+		}
+		else
+		{
+
+			l.display();
+		}
+	}
+}
+
+
+8.Deleting Tasks in a Task Management System
+
+
+import java.io.*;
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+    public Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class LinkedList{
+    public Node head=null;
+    public Node tail=null;
+    public void insertAtEnd(int data){
+        Node nn=new Node(data);
+        if(head==null){
+            head=nn;
+            return;
+        }
+    Node c=head;
+    while(c.next!=null){
+        c=c.next;
+    }
+    c.next=nn;
+}
+    public void delEle(int t){
+        while(t>0){
+        head=head.next;
+            t--;
+        }
+    }
+    public void display()
+{
+    Node i=head;
+    while(i!=null)
+    {
+        System.out.print(i.data+" ");
+        i=i.next;
+    }
+}
+}
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        LinkedList l=new LinkedList();
+        for(int i=0;i<n;i++){
+            int id=sc.nextInt();
+            l.insertAtEnd(id);
+        }
+        int t=sc.nextInt();
+        if(t>=n){
+            System.out.print("List is empty");
+        }
+        else{
+        l.delEle(t);
+        l.display();
+    }}
+}
+
+
+9.Adding a Task to the End of a Circular To-Do List
+
+mport java.io.*;
+import java.util.*;
+
+class Node{
+    int data;
+    Node next;
+    public Node(int data)
+    {
+        this.data=data;
+        this.next=null;
+    }
+
+}
+class LinkedList{
+
+public Node head=null;
+public Node tail=null;
+
+    public void insertAtEnd(int data){
+        Node nn=new Node(data);
+        if(head==null){
+            head=nn;
+            return;
+        }
+        Node current=head;
+        while(current.next!=null){
+            current=current.next;
+        }
+        current.next=nn;
+    }
+public void display()
+{
+    Node i=head;
+    while(i!=null)
+    {
+        System.out.print(i.data+" ");
+        i=i.next;
+
+    }
+}
+}
+
+public class Main{
+public static void main(String[] args)
+{
+    Scanner sc=new Scanner(System.in);
+    int n=sc.nextInt();
+    int id=0;
+    LinkedList l=new LinkedList();
+    for(int i=0;i<n;i++){
+        id=sc.nextInt();
+        l.insertAtEnd(id);
+    }
+l.display();
+
+}
+
+10.Linked List - Removing a Task from a Specific Position
+
+
+import java.io.*;
+import java.util.*;
+
+class Node{
+    int data;
+    Node next;
+    public Node(int data)
+    {
+        this.data=data;
+        this.next=null;
+    }
+
+}
+class LinkedList{
+
+public Node head=null;
+public Node tail=null;
+
+    public void insertAtEnd(int data){
+        Node nn=new Node(data);
+        if(head==null){
+            head=nn;
+            return;
+        }
+        Node current=head;
+        while(current.next!=null){
+            current=current.next;
+        }
+        current.next=nn;
+    }
+public void del(int pos)
+{
+    Node c=head,p=null;
+    int count=1;
+    if(pos==1)
+    {
+        head=head.next;
+        return;
+    }
+    while(pos!=count && c!=null)
+    {
+        p=c;
+        c=c.next;
+        count++;
+    }
+    if(count==pos)
+    {
+        p.next=c.next;
+        if(p.next==null)
+        {
+            tail=p;
+        }
+    }
+}
+public void display()
+{
+    Node i=head;
+    while(i!=null)
+    {
+        System.out.print(i.data+" ");
+        i=i.next;
+
+    }
+}
+}
+
+public class Main{
+public static void main(String[] args)
+{
+    Scanner sc=new Scanner(System.in);
+    int n=sc.nextInt();
+    int id=0;
+    LinkedList l=new LinkedList();
+    for(int i=0;i<n;i++){
+        id=sc.nextInt();
+        l.insertAtEnd(id);
+    }
+    int pos=sc.nextInt();
+    if(n==0)
+        {
+
+            System.out.print("List is empty");
+        }
+    else
+    {
+    l.del(pos);
+l.display();
+    }
+}
+}
+ }
