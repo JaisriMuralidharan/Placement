@@ -1,0 +1,211 @@
+1.Binary Tree - Organizing a Cricket Tournament
+
+
+import java.io.*;
+import java.util.*;
+public class Solution {
+    static class Node {
+        int data;
+        Node left, right;
+        Node(int data) {
+            this.data = data;
+            left = right = null;
+        }
+    }
+    public static Node insertLevelOrder(Node root, int value) {
+        Node newNode = new Node(value); // Corrected variable name from newNoe to newNode
+        if (root == null) {
+            return newNode; // Corrected variable name from newNoe to newNode
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node temp = queue.poll();
+            if (temp.left == null) { // Corrected from '=' to '=='
+                temp.left = newNode; // Corrected variable name from newNoe to newNode
+                break;
+            } else {
+                queue.add(temp.left);
+            }
+            if (temp.right == null) { // Corrected from '=' to '=='
+                temp.right = newNode; // Corrected variable name from newNoe to newNode
+                break;
+            } else {
+                queue.add(temp.right);
+            }
+        }
+        return root;
+    }
+    public static void levelOrderTraversal(Node root) {
+        if (root == null) return;
+        Queue<Node> queue = new LinkedList<>(); // Corrected from Linkedlist to LinkedList
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node temp = queue.poll();
+            System.out.print(temp.data + " ");
+            if (temp.left != null) queue.add(temp.left);
+            if (temp.right != null) queue.add(temp.right);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Node root = null;
+        for (int i = 0; i < n; i++) {
+            int value = sc.nextInt();
+            root = insertLevelOrder(root, value);
+        }
+        levelOrderTraversal(root);
+    }
+}
+
+
+2.same Tree(leetcode question number :100)
+
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p==null && q==null)return true;
+        if(p==null || q==null)return false;
+        return p.val==q.val && isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+    }
+}
+
+
+3.Binary Tree - Cricket Tournament Bracket Management
+
+
+import java.io.*;
+import java.util.*;
+public class Solution {
+    static class Node {
+        int data;
+        Node left, right;
+        Node(int data) {
+            this.data = data;
+            left = right = null;
+        }
+    }
+    public static Node buildTree(Queue<Integer> queue) {
+        if (queue.isEmpty()) {
+            return null;
+        }
+        Integer value = queue.poll();
+        if (value == -1) {
+            return null; 
+        }
+        Node node = new Node(value);
+        node.left = buildTree(queue);
+        node.right = buildTree(queue); 
+        return node;
+    }
+    public static void preOrderTraversal(Node root) {
+        if (root == null) {
+            return;
+        }
+        System.out.print(root.data + " "); 
+        preOrderTraversal(root.left); 
+        preOrderTraversal(root.right); 
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        String[] tokens = input.split(" ");
+        Queue<Integer> queue = new LinkedList<>();
+        for (String token : tokens) {
+            queue.add(Integer.parseInt(token));
+        }
+        Node root = buildTree(queue);
+        preOrderTraversal(root);
+    }
+}
+
+
+4.Symmetric tree (leetcode question number :101)
+
+
+
+class Solution 
+{
+    public boolean isSymmetric(TreeNode root) 
+    {
+        if(root==null)return false;
+        return isMirror(root.left,root.right);
+    }
+    boolean isMirror(TreeNode left,TreeNode right)
+    {
+        if(left==null && right ==null)return true;
+        if(left==null ||right==null)return false;
+        if(left.val!=right.val)return false;
+        return isMirror(left.left,right.right)&& isMirror(left.right,right.left);
+    }
+}
+
+
+
+5.Unival Tree (leetcode question number :965) 
+
+
+class Solution 
+{
+    private boolean uni(TreeNode root,int val) 
+    {
+        if(root==null)return true;
+        if(root.val!=val)return false;
+        boolean l=uni(root.left,val);
+        boolean r=uni(root.right,val);
+        return(l && r);       
+    }
+    public boolean isUnivalTree(TreeNode root)
+    {
+        int val=root.val;
+        return uni(root,val);
+    }
+}
+
+
+6.Binary Search Tree - Organizing a Library Collection
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left, right;
+
+    TreeNode(int x) {
+        val = x;
+        left = right = null; // Initialize left and right to null
+    }
+}
+
+public class Main {
+    public static TreeNode insert(TreeNode root, int val) {
+        if (root == null) {
+            return new TreeNode(val); // Corrected: Added semicolon and fixed return statement
+        }
+        if (val < root.val) {
+            root.left = insert(root.left, val);
+        } else {
+            root.right = insert(root.right, val);
+        }
+        return root; // Moved outside of the if-else block
+    }
+
+    public static void inorderTraversal(TreeNode root) { // Added parameter name 'root'
+        if (root == null) return;
+        inorderTraversal(root.left);
+        System.out.print(root.val + " ");
+        inorderTraversal(root.right);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        TreeNode root = null;
+        for (int i = 0; i < n; i++) {
+            int value = sc.nextInt();
+            root = insert(root, value); // Corrected: Changed 'val' to 'value'
+        }
+        inorderTraversal(root);
+    }
+}
+
