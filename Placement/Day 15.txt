@@ -1,0 +1,85 @@
+1.Best Time to Buy and Sell Stock(Leetcode Question no:121) 
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int buy = prices[0];
+        int profit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < buy) {
+                buy = prices[i];
+            } else if (prices[i] - buy > profit) {
+                profit = prices[i] - buy;
+            }
+        }
+        return profit;
+    }
+}
+
+
+2. Median of Two Sorted Arrays(Leetcode Question no:4) 
+Input: nums1 = [1,3], nums2 = [2]
+Output: 2.00000
+
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int m = nums2.length;
+        int k = n + m ;
+        int merge[] = new int[k];
+      int l1=0; // determining nums1  array length 
+      int l2 = 0; // determining filling of nums2 array
+        for(int i=0;i<k;i++) {
+            if(l1 != n) {
+                merge[i] =  nums1[i];
+                l1++;
+            } else {
+                merge[i] = nums2[l2];
+                l2++;
+            }
+        }  
+        Arrays.sort(merge);
+      int mid = merge.length / 2;
+        if(merge.length % 2 != 0) {
+            return merge[merge.length / 2];
+        }  else {
+            double ans = merge[mid] + merge[mid - 1];
+            return ans/2;
+        }
+    }
+}
+
+
+3.Find Center of Star Graph(Leetcode Question no:.1791)   
+Input: edges = [[1,2],[2,3],[4,2]]
+Output: 2
+
+
+class Solution {
+    public int findCenter(int[][] e) {
+      return e[0][0]==e[1][0]||e[0][0]==e[1][1]?e[0][0]:e[0][1];
+    }
+}
+
+
+4.Single Number (Leetcode Question no:136) 
+
+
+Input: nums = [2,2,1]
+Output: 1  {  when a^0=a   and   a^b=(addition of ab)}
+
+class Solution
+{
+    public int singleNumber(int[] nums) 
+    {
+    int xor=0;
+    for(int i=0;i<nums.length;i++)
+    {
+        xor^=nums[i];
+    }
+    return xor;
+  }
+}
+
+
